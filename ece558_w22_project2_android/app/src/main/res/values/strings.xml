@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ESP32</string>
+    <string name="temp">Temperature</string>
+    <string name="humid">Humidity</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="connect">Connect</string>
+    <string name="led_slider">LED Slider</string>
+    <string name="interval_slider">Interval Slider</string>
+    <string name="button">Button Status</string>
+</resources>
