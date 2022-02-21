@@ -9,6 +9,8 @@
 #define BUTTON_DEBOUNCE_MS          25          
 
 #define LED_PIN                     12
-
+#define LED_FREQ                    5000
+#define LED_CHANNEL                 0
+#define LED_RESOLUTION              8
 
 #endif //__COMMON_DEFS_H__
