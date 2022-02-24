@@ -8,25 +8,25 @@
 
     <TextView
         android:id="@+id/temp"
-        android:layout_width="123dp"
-        android:layout_height="50dp"
+        android:layout_width="119dp"
+        android:layout_height="33dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="48dp"
-        android:layout_marginBottom="505dp"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/humid"
-        android:layout_width="123dp"
-        android:layout_height="50dp"
+        android:layout_width="119dp"
+        android:layout_height="33dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="505dp"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,14 +35,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="16dp"
         android:text="@string/temp"
         android:textAlignment="center"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/temp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.941" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/button_title"
@@ -72,9 +70,9 @@
 
     <TextView
         android:id="@+id/inter_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
+        android:layout_width="133dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="136dp"
         android:layout_marginBottom="20dp"
         android:text="@string/interval_slider"
         android:textAlignment="center"
@@ -86,13 +84,13 @@
         android:id="@+id/humid_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="74dp"
-        android:layout_marginBottom="12dp"
         android:text="@string/humid"
         android:textAlignment="center"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/humid"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.slider.Slider
         android:id="@+id/led_slider"
@@ -103,6 +101,7 @@
         android:layout_marginBottom="160dp"
         android:valueFrom="0.0"
         android:valueTo="255.0"
+        android:stepSize="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -116,8 +115,9 @@
         android:layout_marginStart="28dp"
         android:layout_marginEnd="29dp"
         android:layout_marginBottom="276dp"
-        android:valueFrom="0.0"
-        android:valueTo="10.0"
+        android:valueFrom="1.0"
+        android:valueTo="100.0"
+        android:stepSize="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -135,7 +135,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/disconnect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="44dp"
@@ -153,7 +153,7 @@
         android:layout_marginEnd="94dp"
         android:textAlignment="center"
         android:textSize="24sp"
-        android:textStyle="normal"
+        android:textStyle="normal|bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
