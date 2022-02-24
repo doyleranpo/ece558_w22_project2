@@ -10,6 +10,8 @@ static hw_timer_t * timer = timerBegin(0, 80, true);;
 bool do_sense = true;
 bool timer_set = false;
 
+bool sensor_mqtt_update = false;
+
 /**
  * @brief Timer interrupt for enabling read
  */
@@ -52,6 +54,14 @@ bool aht_setup()
     return false;
 }
 
+float get_temperature() {
+    return temperature;
+}
+
+float get_humidity() {
+    return humidity;
+}
+
 void read_env() {
     aht.getEvent(&humid, &temp);
     temperature = temp.temperature;
@@ -62,6 +72,7 @@ void update_values(){
     if(do_sense) {
         do_sense = false;
         read_env();
+        sensor_mqtt_update = true;
         Serial.printf("Temperature %.2f Humidity %.2f\r\n", temperature, humidity);
     }
 } 
