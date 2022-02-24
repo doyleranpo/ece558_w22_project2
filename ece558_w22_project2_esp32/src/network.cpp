@@ -2,14 +2,15 @@
 #include "common_defs.h"
 #include "led.h"
 #include "sensors.h"
+#include "button.h"
 
 const char *ssid = "Y.A.A.S.2.4";
 const char *pwwd = "Storyline@809"; 
 
 static EspMQTTClient feather(
-    "broker.hivemq.com",
-    1883,
-    "AyushSriv"
+    MQTT_BROKER_URI, 
+    MQTT_PORT,
+    MQTT_CLIENT_NAME
 );
 
 void wifi_setup() {
@@ -26,27 +27,52 @@ void wifi_setup() {
 }
 
 void mqtt_start() {
+
+    if(button_mqtt_update) {
+        button_publish(is_pressed());
+        button_mqtt_update = false;
+    }
+
+    if(sensor_mqtt_update) {
+        temperature_publish(get_temperature());
+        humidity_publish(get_humidity());
+        sensor_mqtt_update = false;
+    }
+
+
     feather.loop();
+}
+
+void onConnectionEstablished() {
+    // Serial.println("In MQTT");
+    feather.subscribe(MQTT_TOPIC_LED, led_callback);
+    feather.subscribe(MQTT_TOPIC_INTERVAL, interval_callback);
 }
 
 void led_callback(const String& msg) {
     uint8_t brightness = msg.toInt();
-    Serial.println("In LED callback");
+    // Serial.println("In LED callback");
     led_set(brightness);
 }
 
 void interval_callback(const String& msg) {
     uint16_t interval = msg.toInt();
-    Serial.println("In interval callback");
+    // Serial.println("In interval callback");
     set_interval(interval);
 }
 
-void onConnectionEstablished() {
-    Serial.println("In MQTT");
-    feather.subscribe("ayushsriv/led", led_callback);
-    feather.subscribe("ayushsriv/env/interval", interval_callback);
-
-
+void button_publish(bool state) {
+    const String button_state = String(state);
+    feather.publish(MQTT_TOPIC_BUTTON, button_state);
 }
 
+void temperature_publish(float temp) {
+    const String temperature = String(temp);
+    feather.publish(MQTT_TOPIC_TEMPERATURE, temperature);
+}
+
+void humidity_publish(float humid) {
+    const String humidity = String(humid);
+    feather.publish(MQTT_TOPIC_HUMIDITY, humidity);
+}
 
