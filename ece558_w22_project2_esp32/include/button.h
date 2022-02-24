@@ -1,6 +1,9 @@
 #ifndef __BUTTON_H__
 #define __BUTTON_H__
+
 #include <Arduino.h>
+
+extern bool button_mqtt_update;
 
 void button_setup();
 void read_button();
