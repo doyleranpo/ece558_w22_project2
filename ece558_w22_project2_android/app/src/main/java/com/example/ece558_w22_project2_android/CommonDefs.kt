@@ -10,6 +10,7 @@ const val INTERVAL_TOPIC        = "ayushsriv/env/interval"
 const val TEMP_TOPIC            = "ayushsriv/env/temperature"
 const val HUMID_TOPIC           = "ayushsriv/env/humidity"
 const val BUTTON_TOPIC          = "ayushsriv/button"
+const val DEVICE_TOPIC          = "ayushsriv/devstatus"
 
 
 

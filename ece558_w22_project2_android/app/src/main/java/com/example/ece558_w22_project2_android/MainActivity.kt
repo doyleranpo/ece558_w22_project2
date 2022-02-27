@@ -80,7 +80,17 @@ class MainActivity : AppCompatActivity() {
                         Log.d("MQTT Message", "Received message")
 
                         // Update text fields once the message arrives
-                        if (topic!! == TEMP_TOPIC) {
+                        if (topic!! == DEVICE_TOPIC) {
+                            val status = message.toString().split(',')
+
+                            binding.temp.text = status[0]
+                            binding.humid.text = status[1]
+                            binding.ledSlider.value = status[2].toFloat()
+                            binding.intervalSlider.value = status[3].toFloat()
+                            binding.buttonstat.text = when { status[4].toInt() == 1 -> "Button Pressed"
+                                                            else -> "Button Released" }
+                        }
+                        if (topic == TEMP_TOPIC) {
                             binding.temp.text = message.toString()
                         }
 
@@ -187,6 +197,20 @@ class MainActivity : AppCompatActivity() {
     private fun subscribeDev() {
         if (mqttClient.isConnected()) {
             // Subscribe to topics needed for functioning
+            mqttClient.subscribe(
+                topic = DEVICE_TOPIC,
+                qos = 1,
+                object : IMqttActionListener {
+                    override fun onSuccess(asyncActionToken: IMqttToken?) {
+                        Toast.makeText(this@MainActivity, "Subscribed to $DEVICE_TOPIC", Toast.LENGTH_SHORT).show()
+                    }
+
+                    override fun onFailure(asyncActionToken: IMqttToken?, exception: Throwable?) {
+                        Log.d(
+                            "MQTT", "Failed to sub"
+                        )
+                    }
+                })
                 // Subscribe to temperature
             mqttClient.subscribe(
                 topic = TEMP_TOPIC,
