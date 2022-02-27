@@ -1,3 +1,9 @@
+/******************************************
+ * button.h
+ * author: Ayush Srivastava
+ * description: functions required for 
+ *              button implementation
+ *****************************************/
 #ifndef __BUTTON_H__
 #define __BUTTON_H__
 

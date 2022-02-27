@@ -1,3 +1,10 @@
+/*****************************
+ * common_defs.h
+ * author: Ayush Srivastava
+ * description: Common definitions
+ *              required for the
+ *              project
+ *****************************/
 #ifndef __COMMON_DEFS_H__
 #define __COMMON_DEFS_H__
 
@@ -25,5 +32,6 @@
 #define MQTT_TOPIC_BUTTON		    "ayushsriv/button"
 #define MQTT_TOPIC_INTERVAL		    "ayushsriv/env/interval"
 #define MQTT_TOPIC_LED		        "ayushsriv/led"
+#define MQTT_DEVICE_STATUS          "ayushsriv/devstatus"
 
 #endif //__COMMON_DEFS_H__

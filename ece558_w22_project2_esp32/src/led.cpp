@@ -1,3 +1,9 @@
+/*****************************
+ * led.cpp
+ * author: Ayush Srivastava
+ * description: Function implementationd
+ *              for LED using PWM
+ *****************************/
 #include "led.h"
 #include "common_defs.h"
 
@@ -11,7 +17,7 @@ void led_setup() {
     //led_setup_status = true;
 }
 
-bool is_led_active() {
+uint8_t is_led_active() {
     return led_status;
 }
 

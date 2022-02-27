@@ -1,3 +1,9 @@
+/*****************************
+ * main.cpp
+ * author: Ayush Srivastava
+ * description: Main file for 
+ *              entire prooject
+ *****************************/
 #include <Arduino.h>
 
 // User defined includes
@@ -14,7 +20,8 @@ void setup() {
   if(!aht_setup()) {
     Serial.println("Couldn't find sensor");
   }
-  set_interval(5);
+  timer_setup();
+  set_interval(50);
   button_setup();
 }
 

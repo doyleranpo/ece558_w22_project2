@@ -1,3 +1,9 @@
+/*****************************
+ * button.cpp
+ * author: Ayush Srivastava
+ * description: Function implementations
+ *              for button 
+ *****************************/
 #include "button.h"
 #include "common_defs.h"
 

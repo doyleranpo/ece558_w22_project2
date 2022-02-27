@@ -1,3 +1,8 @@
+/*****************************
+ * sensors.h
+ * author: Ayush Srivastava
+ * description: 
+ *****************************/
 #ifndef __SENSORS_H__
 #define __SENSORS_H__
 
@@ -11,7 +16,7 @@ extern bool sensor_mqtt_update;
 bool aht_setup();
 void timer_setup();
 void set_interval(uint16_t sec);
-
+uint16_t return_interval();
 void read_env();
 float get_temperature();
 float get_humidity();
